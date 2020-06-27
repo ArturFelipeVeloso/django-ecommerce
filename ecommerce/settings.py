@@ -18,11 +18,13 @@ DJANGO_APPS = [
 ]
 
 MY_APPS = [
-    'core'
+    'core',
+    'catalog',
+    'accounts',
 ]
 
 THIRD_APPS = [
-
+    'widget_tweaks',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_APPS
@@ -50,6 +52,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #apps
+                'catalog.context_processors.categories',
             ],
         },
     },
@@ -90,3 +94,13 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'tela-inicial'
+LOGOUT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

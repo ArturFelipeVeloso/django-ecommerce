@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ produc }} / {{ block.super }}
+{% endblock %}
+
+{% block body %}
+		<div class="page-header">
+		  <h1>{{ product }}</h1>
+		</div>
+		<div class="row">
+		  <div class="col-sm-4">
+			  <a href="#" class="thumbnail">
+				  <img src="http://placehold.it/350x250" alt="" />
+			  </a>
+		  </div>
+		  <div class="col-sm-8">
+			  <dl>
+			  	<dt>{{product}}</dt>
+				<dd>{{product.description|linebreaksbr}}</dd>
+				<dt>R$ {{product.price}}</dt>
+			  </dl>
+		  </div>
+		</div>
+{% endblock %}
